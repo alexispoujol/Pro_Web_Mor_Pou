@@ -3,6 +3,9 @@ package fr.emse.majeureinfo.springbootintro.model;
 
 import javax.persistence.*;
 
+import static fr.emse.majeureinfo.springbootintro.model.Status.OFF;
+import static fr.emse.majeureinfo.springbootintro.model.Status.ON;
+
 @Entity
 @SuppressWarnings("serial")
 public class Noise {
@@ -48,6 +51,16 @@ public class Noise {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public void switchStatus(){
+        switch(this.status) {
+            case ON:
+                this.status = OFF;
+                break;
+            default:
+                this.status = ON;
+        }
     }
 }
 
